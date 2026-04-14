@@ -31,6 +31,3 @@ try {
     // Si ocurre un error, se captura la excepción y se muestra un mensaje amigable
     die("Lo sentimos, ha ocurrido un problema con la conexión al sistema.");
 }
-?>
- 
-

@@ -10,7 +10,7 @@
     <div style="max-width: 400px; margin: auto; padding: 20px;">
         <h2>Registro de Estudiante</h2>
         <form method="POST">
-            <label>Nombre Completo:</label><br>
+            <label>Nombre Completo (Usuario):</label><br>
             <input type="text" name="nombre" required style="width: 100%; margin-bottom: 10px;"><br>
 
             <label>Correo Electrónico:</label><br>
@@ -24,14 +24,14 @@
 
         <?php
         if (isset($_POST['registrar'])) {
-            // Requisito: Cifrar la contraseña antes de guardar [cite: 20]
+            $nombre = trim($_POST['nombre']);
+            $correo = trim($_POST['correo']);
             $pass_cifrada = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
             
             try {
-                // Requisito: Usar PDO y sentencias preparadas [cite: 22, 41]
-                $sql = "INSERT INTO usuarios (nombre, correo, contraseña) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO usuarios (nombre, correo, password) VALUES (?, ?, ?)";
                 $stmt = $conexion->prepare($sql);
-                $stmt->execute([$_POST['nombre'], $_POST['correo'], $pass_cifrada]);
+                $stmt->execute([$nombre, $correo, $pass_cifrada]);
                 
                 echo "<p style='color: green;'>¡Registro exitoso! <a href='login.php'>Inicia sesión</a></p>";
             } catch (PDOException $e) {
