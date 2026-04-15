@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Buscamos al usuario por correo O por nombre (usuario)
-        $sql = "SELECT id, nombre, password FROM usuarios WHERE correo = :correo OR nombre = :nombre LIMIT 1";
+        $sql = "SELECT id, nombre, contrasena FROM usuarios WHERE correo = :correo OR nombre = :nombre LIMIT 1";
         $stmt = $conexion->prepare($sql);
         $stmt->bindParam(':correo', $usuario_input);
         $stmt->bindParam(':nombre', $usuario_input);
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario_db = $stmt->fetch();
 
         // Validamos la contraseña usando password_verify
-        if ($usuario_db && password_verify($pass_input, $usuario_db['password'])) {
+        if ($usuario_db && password_verify($pass_input, $usuario_db['contrasena'])) {
             
             $_SESSION['user_id'] = $usuario_db['id'];
             $_SESSION['nombre_completo'] = $usuario_db['nombre']; 

@@ -2,25 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio de Sesión - Control de Asistencia</title>
-    <link rel="stylesheet" href="css/estilos.css"> </head>
+    <title>Login - Control de Asistencia</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
 <body>
-    <h2>Iniciar Sesión</h2>
+    <div class="card">
+        <h2>¡Hola de nuevo!</h2>
+        <p class="welcome-text">Bienvenido al Sistema de Control de Asistencia. Por favor, ingresa tus credenciales.</p>
 
-    <?php if (isset($_GET['error'])): ?>
-        <p style="color: red;">Usuario o contraseña incorrectos. Intente de nuevo.</p>
-    <?php endif; ?>
+        <?php if (isset($_GET['error'])): ?>
+            <div class="alert alert-error">Usuario o contraseña incorrectos.</div>
+        <?php endif; ?>
 
-    <form action="php/auth.php" method="POST">
-        <label for="usuario">Usuario o Correo:</label><br>
-        <input type="text" name="usuario" id="usuario" required><br><br>
-
-        <label for="contrasena">Contraseña:</label><br>
-        <input type="password" name="contrasena" id="contrasena" required><br><br>
-
-        <button type="submit">Ingresar</button>
-    </form>
-    
-    <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
+        <form action="php/auth.php" method="POST">
+            <div class="form-group">
+                <label>Usuario o Correo</label>
+                <input type="text" name="usuario" required placeholder="Ingresa tu usuario">
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" name="contrasena" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-primary">Iniciar Sesión</button>
+        </form>
+        
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+            ¿Eres nuevo? <a href="registro.php">Crea una cuenta aquí</a>
+        </p>
+    </div>
 </body>
 </html>
