@@ -15,12 +15,12 @@
         if (isset($_POST['registrar'])) {
             $nombre = trim($_POST['nombre']);
             $correo = trim($_POST['correo']);
-            $pass_cifrada = password_hash($_POST['contrasena'], PASSWORD_DEFAULT); // Cifrado obligatorio [cite: 1034]
+            $pass_cifrada = password_hash($_POST['contrasena'], PASSWORD_DEFAULT); // Cifrado obligatorio 
             
             try {
                 // Asegúrate de que los nombres de las columnas coincidan con tu DB
                 $sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)";
-                $stmt = $conexion->prepare($sql); // Uso de PDO [cite: 1036]
+                $stmt = $conexion->prepare($sql); // Uso de PDO 
                 $stmt->execute([$nombre, $correo, $pass_cifrada]);
                 
                 echo "<div class='alert alert-success'>¡Registro exitoso! <a href='login.php'>Inicia sesión ahora</a></div>";
