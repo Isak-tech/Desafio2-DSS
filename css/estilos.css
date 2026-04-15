@@ -1,0 +1,76 @@
+:root {
+    --primary-color: #4e73df;
+    --success-color: #1cc88a;
+    /* Nuevo gradiente para el fondo */
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --white: #ffffff;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    /* Aplicación del fondo con gradiente */
+    background: var(--bg-gradient);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+/* Títulos y textos */
+h2 { color: #333; margin-top: 0; }
+.welcome-text { color: #666; margin-bottom: 2rem; font-size: 0.95rem; }
+
+/* Estilos de formulario */
+.form-group { text-align: left; margin-bottom: 1.2rem; }
+label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: #444; }
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.2);
+}
+
+/* Botones */
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-primary:hover { transform: scale(1.02); background-color: #3e63d2; }
+.btn-success { background-color: var(--success-color); color: white; }
+.btn-success:hover { transform: scale(1.02); background-color: #169b6b; }
+
+/* Alertas */
+.alert { padding: 12px; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem; }
+.alert-error { background-color: #ffdce0; color: #af233a; border: 1px solid #ffb3bb; }
+.alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+
+a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
