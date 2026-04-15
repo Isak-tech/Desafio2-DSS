@@ -31,7 +31,7 @@ require_once('config/conexion.php');
                 if ($check_stmt->fetch()) {
                     echo "<div class='alert alert-error'>⚠️ Ya has registrado tu asistencia el día de hoy.</div>";
                 } else {
-                    // REGISTRO DE ASISTENCIA: Insertar nuevo registro [cite: 1080]
+                    // REGISTRO DE ASISTENCIA: Insertar nuevo registro 
                     $sql = "INSERT INTO asistencia (usuario_id) VALUES (?)";
                     $stmt = $conexion->prepare($sql);
                     $stmt->execute([$uid]);
